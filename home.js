@@ -3,7 +3,8 @@ const links = document.querySelector(".links");
 const navbar= document.getElementById('nav');
 const topLink= document.querySelector('.top-link ')
 const linksContainer=document.querySelector('.links-container');
-
+const vid= document.getElementById('video');
+vid.playbackRate = 0.8;
 // navToggle.addEventListener('click',toggled);
 // function toggled(){
 //     links.classList.toggle('show-links');

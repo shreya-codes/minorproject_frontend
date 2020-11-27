@@ -1,143 +1,28 @@
+const form=document.getElementById('createpoll-form');
 const alert=document.querySelector('.alert')
-const form=document.querySelector('.createpoll-form')
-const grocery=document.querySelector('#name')
-const submitBtn=document.querySelector('.submit-btn')
-const container=document.querySelector('.created-containerr')
+const pollname=document.getElementById('name');
+const container=document.querySelector('.created-container')
 const list=document.querySelector('.poll-list')
-const clearBtn=document.querySelector('.clear-btn')
-
-// console.log(alert);
-// console.log(form)
-// console.log(grocery)
-// console.log(submitBtn)
-// console.log(container)
-// console.log(list)
-// console.log(clearBtn)
-
-let editElement;
-let editFlag=false;
-let editId='';
+const number=document.getElementById('counted');
+const type=document.getElementById('poll-type');
+const submitBtn=document.querySelector('.submit-btn')
 
 form.addEventListener('submit',addItem);
-clearBtn.addEventListener('click',clearItems);
-
-window.addEventListener("DOMContentLoaded",setupItems);
 function addItem(e){
     e.preventDefault();
-    const value = grocery.value;
+    const pname=pollname.value
+    const numb=number.value
     const id = new Date().getTime().toString();
+    if (pname && numb){
+        createpollItem(id,pname);
+        displayAlert('POLL CREATED','success');
+        container.classList.add("show-container");
+       setBackToDefault();
+      }
 
-
-    if (value && !editFlag){
-       createListItem(id,value);
-       displayAlert('item added','success');
-       container.classList.add("show-container");
-      addToLocalStorage(id,value);
-      setBackToDefault();
+     else {
+       displayAlert("please enter all fields","danger")
      }
-    else if (value && editFlag){
-        editElement.innerHTML=value;
-        displayAlert('value changed','success');
-        editLocalstorage(editId,value);
-        setBackToDefault();
-        // console.log(editElement.innerHTML=value)
-        
-        }
-    else {
-      displayAlert("please enter value","danger")
-    }
-    
-}
-function deleteItem(e){
-    const element = e.currentTarget.parentElement.parentElement;
-    const id=element.dataset.id;
-    list.removeChild(element)
-    if(list.children.length === 0){
-        container.classList.remove("show-container")
-    }
-    displayAlert('item removed','danger');
-    removefromLocalStorage(id);
-    setBackToDefault();
-
-
-}
-function editItem(e){
-    const element = e.currentTarget.parentElement.parentElement;
-    editElement=e.currentTarget.parentElement.previousElementSibling;
-  
-//   console.log(element);
-    grocery.value =editElement.innerHTML;
-    editFlag=true;
-    editId=element.dataset.id;
-    submitBtn.textContent='edit';
-
-}
-
-
-function clearItems(){
-    const items=document.querySelectorAll('.grocery-item');
-    if(items.length>0){
-        items.forEach(function(item){
-            list.removeChild(item);
-            console.log(list);
-        })
-    }
-    container.classList.remove("show-container")
-    displayAlert('empty list','danger');
-    localStorage.removeItem('list');
-    setBackToDefault();  
-}
-
-function addToLocalStorage(id,value){
-    // console.log('added to local storage');
-    const grocery ={id,value};
-    // console.log(grocery)
-    let items = getLocalStorage();
-    
-    items.push(grocery);
-    localStorage.setItem('list',JSON.stringify(items));
-
-}
-function removefromLocalStorage(id){
-    let items= getLocalStorage();
-    items=items.filter(function(item){
-        if(item.id !== id){
-            return item;
-        }
-    })
-    localStorage.setItem('list',JSON.stringify(items));
-
-
-}
-function getLocalStorage(){
-    return localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];
-
-
-}
-function editLocalstorage(id,value){
-    let items= getLocalStorage();
-    items = items.map(function(item){
-        if(item.id===id){
-            item.value=value;
-        }
-        return item;
-    })
-    localStorage.setItem('list',JSON.stringify(items));   
-}
-// localStorage.setItem("orange",JSON.stringify(["item","item2"]))
-// let orange = JSON.parse(localStorage.getItem("orange"));
-// localStorage.removeItem("orange");
-// console.log(orange)
-
-
-function setBackToDefault(){
-    grocery.value='';
-    editFlag=false;
-    editId='';
-    submitBtn.textContent='submit';
-
-
-    // console.log('set back to default')
 }
 function displayAlert(text,action){
     alert.textContent=text;
@@ -151,25 +36,13 @@ function displayAlert(text,action){
         
         },3000)
 }
- function setupItems(){
-     let items=getLocalStorage();
-     if(items.length>0){
-         items.forEach(function(item){
-             createListItem(item.id,item.value)
-         })
-         container.classList.add("show-container");
-
-
-
-     }
- }
- function createListItem(id,value){
+ function createpollItem(id,pname){
     const element= document.createElement('article');
-    element.classList.add('grocery-item');
+    element.classList.add('polls');
     const attr = document.createAttribute('data-id');
     attr.value=id;
     element.setAttributeNode(attr);
-    element.innerHTML = ` <p class="title">${value}</p>
+    element.innerHTML = ` <p class="title">${pname}</p>
     <div class="btn-container">
       <button class="edit-btn" type="button">
         <i class="fas fa-edit">
@@ -182,12 +55,11 @@ function displayAlert(text,action){
         </i>
       </button>
     </div>`;
-    const deleteBtn= element.querySelector('.delete-btn');
-    const editBtn= element.querySelector('.edit-btn');
-    deleteBtn.addEventListener('click',deleteItem);
-    editBtn.addEventListener('click',editItem);
-
-
-    list.appendChild(element);
+  list.appendChild(element);
 
  }
+ function setBackToDefault(){
+    pollname.value='';
+    submitBtn.textContent='submit';
+    // console.log('set back to default')
+}

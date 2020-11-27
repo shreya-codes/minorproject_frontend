@@ -101,6 +101,8 @@ ul {
   #home-button:hover,
   .submit-btn:hover{
     transform:scale(1.2);
+    background: white;
+    color: #2c698d;
 }
  #home-button:focus,
  .submit-btn:focus{
@@ -121,6 +123,7 @@ ul {
   height: 250px;
   width: 250px;
   margin: 20px;
+  border:2px solid rgba(64, 46, 105, 0.1);
   border-radius: 15px;
   box-shadow: 0 14px 28px rgba(64, 46, 105, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   
@@ -227,9 +230,11 @@ text-align: left;
 }
 .footer .footer-content .about .social a:hover ,
 .btn-big:hover{
-  transform:scale(1.1);
+  transform:scale(1.3);
   border: 1px solid #d2e7e7 ;
   transition: all .3s;
+  background: white ;
+  color: #2c698d;
 
 }
 .footer .footer-content .footer-section{

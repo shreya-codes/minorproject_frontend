@@ -36,6 +36,7 @@
         <section class="section-center">
             <form action='newpoll.php' method='post' id="createpoll-form">
                 <p class="alert" id="alert">
+                  <div>
                 <label>POLL-NAME</label><br>
                 <input id='name' type=required name='pollname'><br>
                 
@@ -45,12 +46,12 @@
                 
                  <label>Poll type</label><br>
                  <div id="poll-type">
-                 <p><input type='radio' name='voter' value='Free'>Free</p>
+                 <p><input type='radio' ame='voter' value='Free'>Free</p>
                   <p><input type='radio' name='voter' value='Controlled'>Controlled</p>
                   <p><input type='radio' name='voter' value='FullControlled'> FullControlled</p>
                  </div>
                 <button type="submit" name='newpoll' class="submit-btn">ADD</button>
-            </p>
+                </div> </p>
         </form>
         <div class="created-container">
             <div class="poll-list">
@@ -123,5 +124,6 @@
         </div>
       </div>
     </footer>  
+    <script src="createpoll.js"></script>
 </body>
 </html>
