@@ -1,0 +1,47 @@
+#createpoll-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  color: #2c698d;
+  height: 350px;
+  width: 600px;
+  overflow: hidden;
+  border: 2px solid white;
+  border-top-color: #2c698d;
+  border-top-width: 5px;
+  margin: 10px 390px;
+  padding: 10px;
+}
+#createpoll-form alert{
+  display: flex;
+  flex-direction: column;
+}
+ #createpoll-form input{
+    border: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    padding: 12px 15px;
+    margin: 10px 0;
+    width: 400px;
+    background:#dde3fa;
+ }
+ #createpoll-form  #poll-type{
+   padding:10px;
+   margin: 0;
+   display: flex;
+  
+ }
+ #createpoll-form  #poll-type p{
+   padding: 0 20px;
+   font-weight: normal;
+
+ }
+ #createpoll-form  #poll-type input{
+  padding:60px;
+  margin: 0;
+  height: 20px;
+  width: 50px;
+  border-radius: 50%;
+  
+}
