@@ -37,30 +37,32 @@
             <form action='newpoll.php' method='post' id="createpoll-form">
                 <p class="alert" id="alert">
                   <div>
-                <label>POLL-NAME</label><br>
+                <label id="form-label"> POLL-NAME</label><br>
                 <input id='name' type=required name='pollname'><br>
                 
-                <label>Total entries</label><br>
+                <label id="form-label"> Total entries</label><br>
                 <input id='counted'  type=number name='entry-count'><br>
-                 
                 
-                 <label>Poll type</label><br>
+                 <label id="form-label">Poll type</label><br>
+                 <form action="" id="a">
                  <div id="poll-type">
-                 <p><input type='radio' ame='voter' value='Free'>Free</p>
-                  <p><input type='radio' name='voter' value='Controlled'>Controlled</p>
-                  <p><input type='radio' name='voter' value='FullControlled'> FullControlled</p>
+                 <p><input type='radio' id="r1" name='voter' value='Free'>Free</p>
+                  <p><input type='radio' id="r2" name='voter' value='Controlled'>Controlled</p>
+                  <p><input type='radio' id="r3" name='voter' value='FullControlled'> FullControlled</p>
                  </div>
+                </form>
                 <button type="submit" name='newpoll' class="submit-btn">ADD</button>
                 </div> </p>
         </form>
+        
         <div class="created-container">
+          <h1> Created Polls</h1>
             <div class="poll-list">
-              <article class="eachpll-item">
+              <article class="title">
                
+    </div>
               </article>
             </div>
-            <button class="clear-btn" type="button">
-              delete poll
             </div>
     </section>
     </div>
