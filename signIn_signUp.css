@@ -32,7 +32,7 @@ body{
     margin-top: 15px;
     padding: 12px 30px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+
     transition: transform 80ms ease-in;
 
 }
@@ -82,10 +82,20 @@ form h1{
     outline: none;
     background: #e3f6f5;
 }
-h3{
-    font-weight:bold;
-}
+
 .container{
+    background: #dde3f4;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(64, 46, 105, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 360px;
+    max-width: 50%;
+    min-height: 470px;
+}
+.regiter-container{
     background: #dde3f4;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(64, 46, 105, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
