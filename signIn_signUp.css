@@ -95,18 +95,7 @@ form h1{
     max-width: 50%;
     min-height: 470px;
 }
-.regiter-container{
-    background: #dde3f4;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(64, 46, 105, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 360px;
-    max-width: 50%;
-    min-height: 470px;
-}
+
 .form-container{
     position: absolute;
     top: 0;
